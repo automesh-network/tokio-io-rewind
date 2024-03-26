@@ -87,8 +87,8 @@ impl<T> Rewind<T> {
         match self.pre {
             Some(ref mut old_pre) => {
                 let mut new_pre = BytesMut::with_capacity(old_pre.len() + pre.len());
-                new_pre.extend_from_slice(old_pre);
                 new_pre.extend_from_slice(&pre);
+                new_pre.extend_from_slice(old_pre);
                 self.pre = Some(new_pre.freeze());
             }
             None => {
