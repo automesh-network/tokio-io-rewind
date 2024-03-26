@@ -1,6 +1,6 @@
 [package]
 name = "tokio-io-rewind"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A simple library to rewind tokio::io::AsyncRead and tokio::io::AsyncWrite streams"
 repository = "https://github.com/automesh-network/tokio-io-rewind"
