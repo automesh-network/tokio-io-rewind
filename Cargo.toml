@@ -1,0 +1,17 @@
+[package]
+name = "tokio-io-rewind"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = "1.36.0"
+bytes = "1.6.0"
+
+[dev-dependencies]
+tokio = { version = "1.36.0", features = ["full"]}
+
+[lints.clippy]
+all = "deny"
+pedantic = "deny"
