@@ -1,5 +1,9 @@
 # tokio-io-rewind
 
+[![crates.io](https://img.shields.io/crates/v/tokio-io-rewind.svg)](https://crates.io/crates/tokio-io-rewind)
+[![Released API docs](https://docs.rs/tokio-io-rewind/badge.svg)](https://docs.rs/tokio-io-rewind)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
 `tokio-io-rewind` is a Rust crate providing a wrapper for types implementing the `AsyncRead` and `AsyncWrite` traits, allowing for the prepending of bytes to the read stream. This functionality is particularly useful in scenarios where data read from a stream needs to be re-examined or processed again, making it an ideal choice for networking, parsing, and proxying tasks where data manipulation is crucial.
 
 ## Features
