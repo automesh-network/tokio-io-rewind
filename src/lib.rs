@@ -10,13 +10,14 @@
 //!
 //! ```
 //! use bytes::Bytes;
-//! use tokio::io::AsyncReadExt; // for read_to_end
-//! use rewind::Rewind;
+//! use tokio::io::AsyncReadExt;
+//! use tokio_io_rewind::Rewind;
+//! use std::io::Cursor;
 //!
 //! #[tokio::main]
 //! async fn main() {
 //!     // Create a new Rewind instance with a Cursor wrapped inside.
-//!     let mut rw = Rewind::new(tokio::io::Cursor::new(b"world".to_vec()));
+//!     let mut rw = Rewind::new(Cursor::new(b"world".to_vec()));
 //!
 //!     // Prepend "hello " to the stream.
 //!     rw.rewind(Bytes::from_static(b"hello "));
@@ -167,11 +168,12 @@ where
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::io::Cursor;
     use tokio::io::AsyncReadExt;
 
     #[tokio::test]
     async fn test_rewind() {
-        let mut rw = Rewind::new(std::io::Cursor::new(b"world".to_vec()));
+        let mut rw = Rewind::new(Cursor::new(b"world".to_vec()));
         rw.rewind(Bytes::from_static(b"hello "));
         let mut buf = Vec::new();
         rw.read_to_end(&mut buf).await.unwrap();
